@@ -1,0 +1,84 @@
+.content {
+  padding: 0 20rpx;
+}
+.content video,image {
+  width: 100%;
+  border-radius: 10rpx;
+}
+.content .desc {
+  font-size: 30rpx;
+  padding: 5rpx 10rpx;
+  color: #555;
+}
+.footer {
+  height: 90rpx;
+  display: flex;
+  border-top: 1rpx solid #f2f2f2;
+}
+.creator {
+  flex: 1;
+  line-height: 80rpx;
+  padding: 0 10rpx;
+}
+.creator image {
+  width: 50rpx;
+  height: 50rpx;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+.comment,.share {
+  width: 110rpx;
+  position: relative;
+}
+.iconfont {
+  font-size: 44rpx;
+  line-height: 86rpx;
+}
+.comment .comment-number,.share .fenxiang-number {
+  position: absolute;
+  top: 10rpx;
+  left: 44rpx;
+  font-size: 28rpx;
+  color: #555;
+}
+.footer button {
+  width: 110rpx;
+  padding-left: 0;
+  padding-right: 0;
+  padding: 0;
+  background-color: #fff;
+  color: #555;
+  font-weight: normal;
+  font-size: 40rpx;
+  text-align: left;
+}
+/* 评论区 */
+.comments-content {
+  animation: down .4s;
+}
+.comments {
+  padding-bottom: 20rpx;
+  height: 600rpx;
+}
+@keyframes down {
+  0% {height: 0;}
+  100% {height: 600rpx;}
+}
+.comment-item {
+  padding: 20rpx;
+}
+.comment-img {
+  width: 50rpx;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+.comment-name {
+  padding-left: 20rpx;
+  color: #3d3d3d;
+}
+.video-comment {
+  margin-left: 70rpx;
+  font-size: 28rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #e9e9e9;
+}

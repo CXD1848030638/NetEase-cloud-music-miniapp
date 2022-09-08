@@ -1,0 +1,11 @@
+<!-- <scroll-view scroll-x> -->
+  <view class="recommend">
+    <block wx:for="{{recommendList}}" wx:key="index" >
+      <view data-type="{{item.type}}" class="recommendList" bindtap="openNew">
+        <view class="icon iconfont {{item.icon}}"></view>
+        <view class="text">{{item.text}}</view>
+      </view>
+    </block>
+  </view>
+<!-- </scroll-view> -->
+

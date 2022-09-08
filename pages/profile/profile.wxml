@@ -1,0 +1,63 @@
+<view class="container">
+  <view class="topBar" style="height:{{h+44}}px;line-height:{{2*h+44}}px;">
+    <view class="back"/>
+    <view class="songName"></view>
+    <view class="back"/>
+  </view>
+  <image lazy-load  class="back-img" style="opacity:{{opcity}}" src="{{userInfo.backgroundUrl}}" mode="widthFix"/>
+  <scroll-view class="scroll-content" scroll-y style="{{scrollStyle}}">
+    <view class="main">
+      <view class="content">
+        <view class="user">
+          <image lazy-load  src="{{userInfo.avatarUrl}}" class="user-img" mode="widthFix"/>
+        </view>
+        <view>
+          <view class="user-name">{{userInfo.nickname}}</view>
+          <view class="user-follow">
+            <view>{{userInfo.follows}} <text style="color: #5c5c5c;"> 关注</text></view>
+            <view>{{userInfo.followeds}} <text style="color: #5c5c5c;"> 粉丝</text></view>
+            <view>Lv.{{level.level}}</view>
+          </view>
+          <view class="user-introduce">点击添加个人简介</view>
+        </view>
+      </view>
+
+      <view class="content content-music">
+        <view class="title">播放记录</view>
+        <scroll-view class="scroll-record" scroll-x enable-flex>
+          <block wx:for="{{recentPlayList}}" wx:key="index">
+            <view id="{{item.song.id}}" class="scroll-item" catchtap="chooseSong">
+              <image lazy-load  class="scroll-img" src="{{item.song.al.picUrl}}"/>
+              <view class="desc">{{item.song.name}}</view>
+            </view>
+          </block>
+        </scroll-view>
+      </view>
+
+      <view id="{{likes.id}}" class="content content-love" catchtap="chooselist">
+        <image lazy-load  class="love-img" src="{{likes.coverImgUrl}}" mode="widthFix"></image>
+        <view class="love-title">
+          <view>我喜欢的音乐</view>
+          <view class="love-count">{{likes.trackCount}}首</view>
+        </view>
+        <view class="active" catchtap="activePlay">心动模式</view>
+      </view>
+
+      <view class="content content-own" >
+        <view class="shoucang-title">收藏歌单({{own.length}}个)</view>
+        <block wx:for="{{own}}" wx:key="index">
+          <view id="{{item.id}}" class="own-item" catchtap="chooselist">
+            <image lazy-load  class="love-img" src="{{item.coverImgUrl}}" mode="widthFix"></image>
+            <view class="love-title">
+              <view class="love-name">{{item.name}}</view>
+              <view class="love-count">{{item.trackCount}}首</view>
+            </view>
+          </view>
+        </block>
+      </view>
+
+      <view class="loginOut" catchtap="toLogin">退出登陆</view>
+    </view>
+  </scroll-view>
+  <common-audio wx:if="{{showAudio}}" class="audio"/>
+</view>

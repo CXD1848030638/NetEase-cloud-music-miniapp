@@ -1,0 +1,29 @@
+<view class="container">
+  <view class="top-filter-content">
+    <view class="filter">
+      <block wx:for="{{areaList}}" wx:key="index">
+        <view id="{{item.id}}" data-type="area" class="tag {{item.id==area?'select':''}}" catchtap="filter">{{item.name}}</view>
+      </block>
+    </view>
+    <view class="filter">
+      <block wx:for="{{typeList}}" wx:key="index">
+        <view id="{{item.id}}" data-type="type" class="tag {{item.id==type?'select':''}}" catchtap="filter">{{item.name}}</view>
+      </block>
+    </view>
+  </view>
+  <view class="title">热门歌手</view>
+  <scroll-view class="scroll-content" scroll-y enable-flex bindscrolltolower="loadmore">
+    <block wx:for="{{singerList}}" wx:key="index">
+      <view id="{{item.id}}" class="scroll-item" catchtap="toSinger">
+        <view class="singer-img">
+          <image lazy-load class="img" src="{{item.img1v1Url}}" mode="widthFix"/>
+        </view>
+        <view class="singer-name">{{item.name}}
+          <text class="ENG-name">{{item.trans?'('+item.trans+')':(item.alias[0]?'('+item.alias[0]+')':'')}}</text>
+        </view>
+        <view id="{{index}}" data-info="{{item}}" class="singer-shoucang {{item.followed?'followed':''}}" catchtap="follow">
+          <text class="iconfont {{item.followed?'icon-dui':'icon-jia'}}"></text> 关注</view>
+      </view>
+    </block>
+  </scroll-view>
+</view>

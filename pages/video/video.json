@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "video-tabbar": "/component/nav-tabbar/nav-tabbar",
+    "video-list": "./childs/video-list/video-list"
+  },
+  "navigationBarTitleText": "视频页"
+}

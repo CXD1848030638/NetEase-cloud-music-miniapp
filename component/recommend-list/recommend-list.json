@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "hd-tip": "/component/hd-tip/hd-tip",
+    "hd-scroll-list": "/component/hd-scroll-list/hd-scroll-list"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/video/video",
+    "pages/profile/profile",
+    "pages/login/login",
+    "pages/new-recommend/new-recommend",
+    "pages/new-ranklist/new-ranklist",
+    "pages/new-singer/new-singer",
+    "pages/new-songlist/new-songlist",
+    "pages/new-live/new-live",
+    "pages/song-play/song-play",
+    "pages/song-list/song-list",
+    "pages/singer-toplist/singer-toplist",
+    "pages/search/search"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#d43c33",
+    "navigationBarTitleText": "仿minMusic",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "backgroundColor": "#eeeeee",
+    "color": "#999999",
+    "selectedColor": "#d43c33",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/assets/images/home.png",
+        "selectedIconPath": "/assets/images/home_active.png"
+      },
+      {
+        "pagePath": "pages/video/video",
+        "text": "视频",
+        "iconPath": "/assets/images/video.png",
+        "selectedIconPath": "/assets/images/video_active.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "/assets/images/music.png",
+        "selectedIconPath": "/assets/images/music_active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "requiredBackgroundModes": ["audio"],
+  "lazyCodeLoading": "requiredComponents"
+}

@@ -1,0 +1,7 @@
+.container {
+  padding-top: 20rpx;
+}
+.video-scroll {
+  margin-top: 20rpx;
+  height: calc(100vh - 90rpx);
+}

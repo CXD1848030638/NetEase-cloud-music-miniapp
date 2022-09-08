@@ -1,0 +1,10 @@
+<view class="container" bindtap="goSongPlay">
+  <view class="song-pic">
+    <image class="song-image" src="{{songInfo.al.picUrl}}" mode="widthFix"/>
+  </view>
+  <view class="song-info">{{songInfo.name}}
+    <text class="singer"> - {{songInfo.ar[0].name}}</text>
+  </view>
+  <view class="iconfont {{isPlay?'icon-zanting1':'icon-65zanting'}}" catchtap="play"/>
+  <view class="iconfont icon-xiayiqu101" catchtap="nextSong"/>
+</view>

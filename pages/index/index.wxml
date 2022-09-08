@@ -1,0 +1,14 @@
+<view class="container">
+  <view class="search-bar" catchtap="search">
+    <view class="search">
+      <text class="iconfont icon-sousuo"></text>
+      搜索</view>
+  </view>
+  <scroll-view class="scroll-content {{showAudio? 'scroll-content-min':''}}"  scroll-y>
+    <hd-swiper banners="{{banners}}"></hd-swiper>
+    <hd-recommend></hd-recommend>
+    <recommend-list recommendList="{{recommendList}}"></recommend-list>
+    <rank-list rankList="{{rankList}}"></rank-list>
+  </scroll-view>
+  <common-audio wx:if="{{showAudio}}" class="audio"/>
+</view>

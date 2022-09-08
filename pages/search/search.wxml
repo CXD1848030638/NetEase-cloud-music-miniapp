@@ -1,0 +1,55 @@
+<view class="container">
+  <view class="search-bar">
+    <view class="search">
+      <text class="iconfont icon-sousuo"></text>
+      <input class="search-text" type="text" placeholder="搜索歌曲"
+      bindconfirm="search" bindinput="input"/>
+    </view>
+  </view>
+  <view class="history" wx:if="{{history.length > 0 && show == 0}}">
+    <view class="title">历史</view>
+    <scroll-view class="history-content" scroll-x enable-flex>
+      <block wx:for="{{history}}" wx:key="index">
+        <view class="history-item" data-name="{{item}}" catchtap="searchWord">{{item}}</view>
+      </block>
+    </scroll-view>
+    <view class="iconfont icon-shanchu" catchtap="clear"/>
+  </view>
+  <view class="search-list" style="{{history.length > 0?'top:64px':'top:40px'}}" wx:if="{{show == 0}}">
+    <view class="title">热搜榜</view>
+    <block wx:for="{{hotSearch}}" wx:key="index">
+      <view data-name="{{item.searchWord}}" class="search-item" catchtap="searchWord">
+        <view class="count {{index<3?'top3':''}}">{{index + 1}}</view>
+        <view class="info">
+          <view class="name">{{item.searchWord}}
+            <image wx:if="{{item.iconUrl}}" class="name-img" src="{{item.iconUrl}}" mode="heightFix"/>
+          </view>
+          <view class="desc">{{item.content}}</view>
+        </view>
+        <view class="score">{{item.score}}</view>
+      </view>
+    </block>
+  </view>
+
+  <view class="search-list" wx:elif="{{show == '1'}}">
+    <block wx:for="{{searchSuggest}}" wx:key="index">
+      <view data-name="{{item.keyword}}" class="list-item" catchtap="searchWord">
+        <text class="iconfont icon-sousuo"></text>
+        {{item.keyword}}
+      </view>
+    </block>
+  </view>
+
+  <view class="search-list" wx:else>
+    <block wx:for="{{searchInfo}}" wx:key="index">
+      <view data-id="{{item.id}}" data-index="{{index}}" class="result-item" catchtap="chooseSong">
+        <view class="result-title">{{item.name}}</view>
+        <view class="desc">
+          <view wx:if="{{item.fee =='1'}}" class="symbol special">VIP</view>
+          <view wx:if="{{item.fee =='1'}}" class="symbol">试听</view>
+          <view class="symbol special" wx:if="{{item.album.status == 0 && item.album.size < 14}}">SQ</view>
+          {{item.artists[0].name}} - {{item.album.name}}</view>
+      </view>
+    </block>
+  </view>
+</view>

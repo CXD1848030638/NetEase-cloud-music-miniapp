@@ -1,0 +1,37 @@
+<view class="content">
+  <block wx:for="{{videoList}}" wx:key="index">
+    <view class="video-item">
+      <video wx:if="{{vid == item.data.vid}}" id="{{item.data.vid}}" object-fit="contain" src="{{videoInfo.url}}" bindplay="playVideo"
+      poster="{{item.data.coverUrl}}"/>
+      <image lazy-load  wx:else id="{{item.data.vid}}" src="{{item.data.coverUrl}}" mode="widthFix" bindtap="playVideo"/>
+      <view class="desc">{{item.data.title}}</view>
+      <view class="footer">
+        <view class="creator">
+          <image lazy-load  src="{{item.data.creator.avatarUrl}}"/>
+          <text style="padding: 0 20rpx;color: #555;">{{item.data.creator.nickname}}</text>
+        </view>
+        <view id="{{item.data.vid}}" class="comment" catchtap="chooseComment">
+          <text class="iconfont icon-pinglun"></text>
+          <text class="comment-number">{{item.data.commentCount<'1000'?item.data.commentCount:'999+'}}</text>
+        </view>
+        <button class="share" open-type="share">
+          <text class="iconfont icon-fenxiang"/>
+          <text class="fenxiang-number">{{item.data.shareCount<'1000'?item.data.shareCount:'999+'}}</text>
+        </button>
+      </view>
+      <view class="comments-content"  wx:if="{{item.data.vid == id}}">
+        <scroll-view scroll-y class="comments">
+          <block wx:for="{{comments}}" wx:key="index">
+            <view class="comment-item">
+              <view>
+                <image lazy-load  class="comment-img" src="{{item.user.avatarUrl}}" mode="widthFix"/>
+                <text class="comment-name">{{item.user.nickname}}</text>
+              </view>
+              <view class="video-comment">{{item.content}}</view>
+            </view>
+          </block>
+        </scroll-view>
+      </view>
+    </view>
+  </block>
+</view>

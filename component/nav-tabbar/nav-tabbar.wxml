@@ -1,0 +1,7 @@
+<scroll-view class="container" scroll-x enable-flex
+  scroll-into-view="{{'scroll' + navId}}"
+  scroll-with-animation>
+  <view id="{{'scroll'+ item.id}}" wx:for="{{navList}}" wx:key="index" class="nav-text {{item.id == navId?'selected':''}}">
+    <view id="{{item.id}}" data-index="{{index}}" bindtap="chooseNav">{{item.name}}</view>
+  </view>
+</scroll-view>

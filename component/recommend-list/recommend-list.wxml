@@ -1,0 +1,4 @@
+<view class="recommend-list">
+  <hd-tip title="推荐歌单" tip="更多" catchtap="toList"></hd-tip>
+  <hd-scroll-list scrollList="{{recommendList}}"></hd-scroll-list>
+</view>
