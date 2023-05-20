@@ -1,4 +1,4 @@
-import {login,sendCaptcha} from '../../service/home'
+import {login,sendCaptcha,getUnikey,getQrbyUnikey,check,status } from '../../service/home'
 const app = getApp()
 Page({
   data: {
@@ -7,6 +7,50 @@ Page({
     captcha: '',
     change: false,
     count: 0,
+    qr: true,
+    qrImage: ''
+  },
+  async onLoad() {
+    const uniData = await getUnikey()
+    console.log(uniData);
+    const unikey = uniData.data.unikey
+    const imgData = await getQrbyUnikey(unikey)
+    this.setData({
+      qrImage: imgData.data.qrimg
+    })
+    let timer = setInterval(async () => {
+      const statusRes = await check(unikey)
+      console.log(statusRes);
+      if (statusRes.code === 800) {
+        wx.showToast({
+          title: '二维码已过期,请重新获取',
+          icon: 'none'
+        })
+        clearInterval(timer)
+      }
+      if (statusRes.code === 803) {
+        clearInterval(timer)
+        wx.showToast({
+          title: '登陆成功',
+          icon: 'none'
+        })
+        wx.setStorage({
+          data: statusRes.cookie,
+          key: 'cookies',
+        })
+        await this.getLoginStatus()
+      }
+    }, 3000)
+  },
+  async getLoginStatus() {
+    const data = await status()
+    wx.setStorage({
+      data: JSON.stringify(data.data.profile),
+      key: 'userInfo',
+    })
+    wx.switchTab({
+      url: '/pages/profile/profile',
+    })
   },
   handleInput(e) {
     let type = e.currentTarget.dataset.type

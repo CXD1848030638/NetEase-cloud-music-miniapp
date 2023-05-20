@@ -2,8 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/video/video",
-    "pages/profile/profile",
     "pages/login/login",
+    "pages/profile/profile",
     "pages/new-recommend/new-recommend",
     "pages/new-ranklist/new-ranklist",
     "pages/new-singer/new-singer",

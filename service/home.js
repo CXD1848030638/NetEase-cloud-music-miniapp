@@ -8,6 +8,27 @@ import request from "./network"
 //     }
 //   })
 // }
+export function getUnikey() {
+  return request({
+    url: `/login/qr/key?timestamp=${Date.now()}`
+  })
+}
+export function getQrbyUnikey(key) {
+  return request({
+    url: `/login/qr/create?key=${key}&qrimg=true&timestamp=${Date.now()}`
+  })
+}
+
+export function check(key) {
+  return request({
+    url: `/login/qr/check?key=${key}&timestamp=${Date.now()}`
+  })
+}
+export function status() {
+  return request({
+    url: `/login/status?timestamp=${Date.now()}`
+  })
+}
 
 export function getBannerData() {
   return request({
