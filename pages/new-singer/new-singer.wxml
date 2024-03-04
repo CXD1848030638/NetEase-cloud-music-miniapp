@@ -16,7 +16,7 @@
     <block wx:for="{{singerList}}" wx:key="index">
       <view id="{{item.id}}" class="scroll-item" catchtap="toSinger">
         <view class="singer-img">
-          <image lazy-load class="img" src="{{item.img1v1Url}}" mode="widthFix"/>
+          <image lazy-load class="img" src="{{item.img1v1Url + '?param=50y50'}}" mode="widthFix"/>
         </view>
         <view class="singer-name">{{item.name}}
           <text class="ENG-name">{{item.trans?'('+item.trans+')':(item.alias[0]?'('+item.alias[0]+')':'')}}</text>

@@ -1,7 +1,7 @@
 <scroll-view class="scroll-content" scroll-x enable-flex="true">
   <block wx:for="{{scrollList}}" wx:key="index">
     <view id="{{item.id}}" class="scroll-item" catchtap="chooseList">
-      <image lazy-load class="scroll-img" src="{{item.picUrl}}"/>
+      <image lazy-load class="scroll-img" src="{{item.picUrl + '?param=100y100'}}"/>
       <view class="desc">{{item.name}}</view>
     </view>
   </block>

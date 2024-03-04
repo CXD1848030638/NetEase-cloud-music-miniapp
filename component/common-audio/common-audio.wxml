@@ -1,6 +1,6 @@
 <view class="container" bindtap="goSongPlay">
   <view class="song-pic">
-    <image class="song-image" src="{{songInfo.al.picUrl}}" mode="widthFix"/>
+    <image class="song-image" src="{{songInfo.al.picUrl + '?param=50y50'}}" mode="widthFix"/>
   </view>
   <view class="song-info">{{songInfo.name}}
     <text class="singer"> - {{songInfo.ar[0].name}}</text>

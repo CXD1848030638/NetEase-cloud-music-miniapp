@@ -5,7 +5,7 @@
     <view class="back"/>
   </view>
   <view class="shadow"/>
-  <image class="back-img" style="opacity:{{opcity}}" src="{{artist.img1v1Url}}" mode="widthFix"/>
+  <image class="back-img" style="opacity:{{opcity}}" src="{{artist.img1v1Url  + '?param=200y200'}}" mode="widthFix"/>
   <scroll-view class="scroll-content" style="{{scrollStyle}}" scroll-y enable-back-to-top scroll-with-animation bindscroll="scroll">
     <view class="song-content">
       <view class="topbar">

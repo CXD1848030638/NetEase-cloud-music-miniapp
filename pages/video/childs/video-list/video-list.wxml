@@ -3,7 +3,7 @@
     <view class="video-item">
       <video wx:if="{{vid == item.data.vid}}" id="{{item.data.vid}}" object-fit="contain" src="{{videoInfo.url}}" bindplay="playVideo"
       poster="{{item.data.coverUrl}}"/>
-      <image lazy-load  wx:else id="{{item.data.vid}}" src="{{item.data.coverUrl}}" mode="widthFix" bindtap="playVideo"/>
+      <image lazy-load  wx:else id="{{item.data.vid}}" src="{{item.data.coverUrl }}" mode="widthFix" bindtap="playVideo"/>
       <view class="desc">{{item.data.title}}</view>
       <view class="footer">
         <view class="creator">

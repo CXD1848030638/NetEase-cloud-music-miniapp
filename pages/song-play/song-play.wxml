@@ -1,5 +1,5 @@
 <view class="back-content">
-  <view class="blur" style="background: url({{songInfo.al.picUrl}}) no-repeat center;"></view>  
+  <view class="blur" style="background: url({{songInfo.al.picUrl }}?param=200y200) no-repeat center;"></view>  
   <view class="container" bindtap="closeList">
     <view class="topBar" style="height:{{h+44}}px;line-height:{{2*h+44}}px">
       <view class="iconfont icon-fanhui back" catchtap="backTo"/>
@@ -12,7 +12,7 @@
       <view class="disc-content">
         <image class="disc" src="/assets/images/song/disc.png" mode="widthFix"/>
         <view class="song-back">
-          <image class="songback-img" src="{{songInfo.al.picUrl}}" mode="widthFix"/>
+          <image class="songback-img" src="{{songInfo.al.picUrl + '?param=200y200'}}" mode="widthFix"/>
         </view>
       </view>
     </view>

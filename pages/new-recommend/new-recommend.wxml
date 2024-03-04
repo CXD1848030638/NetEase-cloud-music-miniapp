@@ -10,7 +10,7 @@
     <view class="history">
       <text>历史日推</text>
     </view>
-    <image lazy-load class="top-back" src="{{imgUrl}}" mode="widthFix"/>
+    <image lazy-load class="top-back" src="{{imgUrl + '?param=50y50'}}" mode="widthFix"/>
     <view class="song-content">
       <view class="topbar">
         <text class="iconfont icon-bofang2"></text>
@@ -20,7 +20,7 @@
       <scroll-view class="{{showAudio? 'scroll-content-min':'scroll-content'}}"  scroll-y enable-flex>
         <block wx:for="{{dailySongs}}" wx:key="index">
           <view class="scroll-item" data-id="{{item.id}}" data-index="{{index}}" catchtap="chooseSong">
-            <image class="pic" src="{{item.al.picUrl}}" />
+            <image class="pic" src="{{item.al.picUrl + '?param=25y25'}}" />
             <view class="song-info">
               <view class="song-title">{{item.name}}</view>
               <view class="song-desc">

@@ -1,7 +1,7 @@
 <scroll-view class="list-content" scroll-y enable-flex>
   <block wx:for="{{playList}}" wx:key="index">
     <view id="{{item.id}}" class="list-item" catchtap="chooseList">
-      <image class="list-img" src="{{item.coverImgUrl}}" mode="widthFix"/>
+      <image class="list-img" src="{{item.coverImgUrl + '?param=80y80'}}" mode="widthFix"/>
       <view class="desc">{{item.name}}</view>
     </view>
   </block>

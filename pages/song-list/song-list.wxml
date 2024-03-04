@@ -5,15 +5,15 @@
     <view class="back"/>
   </view>
   <view class="shadow"/>
-  <image class="back-img" src="{{songList.coverImgUrl || 'https://p2.music.126.net/VFd5cboNTbnYsWZ5DBn9bg==/18953381440004340.jpg'}}" mode="widthFix"/>
+  <image class="back-img" src="{{songList.coverImgUrl + '?param=100y100' || 'https://p2.music.126.net/VFd5cboNTbnYsWZ5DBn9bg==/18953381440004340.jpg?param=100y100'}}" mode="widthFix"/>
   <scroll-view class="scroll-content" style="{{scrollStyle}}" scroll-y bindscrolltolower="loadmore">
     <view class="top-content">
-      <image class="top-image" src="{{songList.coverImgUrl}}" 
+      <image class="top-image" src="{{songList.coverImgUrl + '?param=100y100'}}" 
       mode="widthFix"/>
       <view class="top-info">
         <view class="title">{{songList.name}}</view>
         <view class="creator">
-          <image class="creator-img" src="{{songList.creator.avatarUrl}}" mode="widthFix"/>
+          <image class="creator-img" src="{{songList.creator.avatarUrl + '?param=20y20'}}" mode="widthFix"/>
           <text class="creator-name">{{songList.creator.nickname}}</text>
         </view>
         <view class="info">{{songList.description || ''}}</view>
@@ -48,7 +48,7 @@
   <view class="pull" wx:if="{{isShow}}" catchtap="closeMenu"/>
   <view class="menu {{isShow? 'up': 'down'}}">
     <view class="menu-top">
-      <image class="menu-pic" src="{{songInfo.al.picUrl}}" mode="widthFix"/>
+      <image class="menu-pic" src="{{songInfo.al.picUrl + '?param=100y100'}}" mode="widthFix"/>
       <view class="menu-content">
         <view class="menu-title">{{songInfo.name}}</view>
         <view class="menu-zhuanji">专辑 - {{songInfo.al.name}}</view>
