@@ -149,7 +149,7 @@ Page({
   },
   register() {
     wx.showToast({
-      title: '想屁吃，给爷爬',
+      title: '注册页面发生错误，请重试',
       icon: 'error'
     })
   },

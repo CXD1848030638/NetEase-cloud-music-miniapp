@@ -17,7 +17,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#d43c33",
-    "navigationBarTitleText": "仿minMusic",
+    "navigationBarTitleText": "网易云音乐",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
