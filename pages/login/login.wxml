@@ -1,0 +1,39 @@
+
+<view class="container">
+  <view class="wrapper">
+    <view class="left-top-sign">LOGIN</view>
+    <view class="welcome">
+      欢迎回来！
+    </view>
+    <view wx:if="qr">
+      <image style="width: 600rpx;" src="{{qrImage}}" mode="widthFix"/>
+    </view>
+    <view class="input-content" wx:else>
+      <view class="input-item">
+        <text class="tit">手机号码</text>
+        <input id="phone" data-type="phone" type="text" placeholder="请输入手机号码" bindinput="handleInput"/>
+      </view>
+      <view wx:if="{{change}}" class="input-item">
+        <text class="tit">密码</text>
+        <input id="pwd" data-type="pwd" type="password"  placeholder="请输入密码" bindinput="handleInput"/>
+      </view>
+      <view wx:else class="input-item">
+        <text class="tit">验证码</text>
+        <view style="width:100%">
+          <input style="width: 60%" id="captcha" maxlength="6" data-type="captcha" type="number" placeholder="请输入验证码" bindinput="handleInput"/>
+          <button class="confim-num" bindtap="getConfimNum">{{count>0?'('+count+'s)':'获取验证码'}}</button>
+        </view>
+      </view>
+
+      <button class="confirm-btn" bindtap="login">登录</button>
+    <view class="forget-section" bindtap="changeLoginType" >
+      {{change?'切换成手机验证码登录':'切换手机密码登陆'}}
+    </view>
+    </view>
+    
+  </view>
+  <view class="register-section">
+    还没有账号?
+    <text bindtap="register">马上注册</text>
+  </view>
+</view>

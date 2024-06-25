@@ -1,0 +1,11 @@
+<view class="container">
+  <video-tabbar navId="{{navId}}" navList="{{navList}}" bind:changeNavId="changeNav"/>
+  <scroll-view scroll-y class="video-scroll" 
+    enable-back-to-top
+    refresher-enabled
+    refresher-triggered="{{isTrigger}}"
+    bindrefresherrefresh="update"
+    bindscrolltolower="loadMore">
+    <video-list videoList="{{videoList}}"></video-list>
+  </scroll-view>
+</view>

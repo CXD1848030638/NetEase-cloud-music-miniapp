@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "hd-tip": "/component/hd-tip/hd-tip",
+    "swiper-list": "/component/swiper-list/swiper-list"
+  }
+}

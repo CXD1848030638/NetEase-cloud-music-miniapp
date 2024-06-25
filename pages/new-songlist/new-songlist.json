@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "nav-tabbar": "/component/nav-tabbar/nav-tabbar",
+    "play-list": "./childs/play-list/play-list"
+  },
+  "navigationBarTitleText": "歌单广场",
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black"
+}

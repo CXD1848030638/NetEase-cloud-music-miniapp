@@ -1,0 +1,4 @@
+<view class="content">
+  <nav-tabbar navId="{{params.id}}" navList="{{navList}}" bind:changeNavId="changeNav"/>
+  <play-list playList="{{playList}}"/>
+</view>

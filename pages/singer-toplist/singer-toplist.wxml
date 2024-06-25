@@ -1,0 +1,35 @@
+<view class="container">
+  <view class="topBar" style="height:{{h+44}}px;line-height:{{2*h+44}}px;">
+    <view class="iconfont icon-fanhui back" catchtap="backTo"/>
+    <view class="songName">{{opcity < 0.35?artist.name:''}}</view>
+    <view class="back"/>
+  </view>
+  <view class="shadow"/>
+  <image class="back-img" style="opacity:{{opcity}}" src="{{artist.img1v1Url  + '?param=200y200'}}" mode="widthFix"/>
+  <scroll-view class="scroll-content" style="{{scrollStyle}}" scroll-y enable-back-to-top scroll-with-animation bindscroll="scroll">
+    <view class="song-content">
+      <view class="topbar">
+        <text class="iconfont icon-bofang2"></text>
+        <text class="play-title">热门歌曲</text>
+        <text class="play-count">({{hotSongs.length}})</text>
+      </view>
+      <view>
+        <block wx:for="{{hotSongs}}" wx:key="index">
+          <view class="scroll-item" data-id="{{item.id}}" data-index="{{index}}" catchtap="chooseSong">
+            <text class="song-number">{{index + 1}}</text>
+            <view class="song-info">
+              <view class="song-title">{{item.name}}</view>
+              <view class="song-desc">
+                <view wx:if="{{item.fee =='1'}}" class="symbol special">VIP</view>
+                <view wx:if="{{item.fee =='1'}}" class="symbol">试听</view>
+                <view class="symbol" wx:if="{{item.originCoverType == 1}}">独家</view>
+                <view class="symbol special" wx:if="{{item.privilege.playMaxbr > 320000}}">SQ</view>
+                {{item.ar[0].name}} - {{item.al.name}}</view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </scroll-view>
+  <common-audio wx:if="{{showAudio}}" class="audio"/>
+</view>

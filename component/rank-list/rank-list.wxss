@@ -1,0 +1,4 @@
+.rank-content {
+  padding: 30rpx 20rpx;
+  border-bottom: 20rpx solid #e7e7e7;
+}

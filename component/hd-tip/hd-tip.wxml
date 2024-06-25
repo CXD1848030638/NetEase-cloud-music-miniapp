@@ -1,0 +1,4 @@
+<view class="content">
+  <view class="title">{{title}}</view>
+  <view class="more">{{tip}}</view>
+</view>

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "common-audio": "/component/common-audio/common-audio"
+  },
+  "navigationStyle": "custom"
+}

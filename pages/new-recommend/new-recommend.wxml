@@ -1,0 +1,45 @@
+<view class="content">
+  <view class="container">
+    <view class="shadow"></view>
+    <view class="topBar" style="height:{{h+44}}px;line-height:{{2*h+44}}px">
+      <view class="iconfont icon-fanhui back" catchtap="backTo"/>
+      <view class="songName"></view>
+      <view class="back"></view>
+    </view>
+    <view class="date"><text style="font-size: 54rpx;padding: 0 20rpx">{{date.day}}</text>/{{date.month}}</view>
+    <view class="history">
+      <text>历史日推</text>
+    </view>
+    <image lazy-load class="top-back" src="{{imgUrl + '?param=50y50'}}" mode="widthFix"/>
+    <view class="song-content">
+      <view class="topbar">
+        <text class="iconfont icon-bofang2"></text>
+        <text class="play-title">播放全部</text>
+        <text class="play-count">({{dailySongs.length}})</text>
+      </view>
+      <scroll-view class="{{showAudio? 'scroll-content-min':'scroll-content'}}"  scroll-y enable-flex>
+        <block wx:for="{{dailySongs}}" wx:key="index">
+          <view class="scroll-item" data-id="{{item.id}}" data-index="{{index}}" catchtap="chooseSong">
+            <image class="pic" src="{{item.al.picUrl + '?param=25y25'}}" />
+            <view class="song-info">
+              <view class="song-title">{{item.name}}</view>
+              <view class="song-desc">
+                <view wx:if="{{item.fee =='1'}}" class="symbol special">VIP</view>
+                <view wx:if="{{item.fee =='1'}}" class="symbol">试听</view>
+                <view class="symbol" wx:if="{{item.originCoverType == 1}}">独家</view>
+                <view class="symbol special" wx:if="{{item.privilege.playMaxbr > 320000}}">SQ</view>
+                {{item.ar[0].name}} - {{item.al.name}}</view>
+            </view>
+            <!-- <view data-info="{{item}}" class="iconfont icon-gengduo" catchtap="openMenu"/> -->
+            <view data-info="{{item}}" class="iconfont icon-gengduo"/>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+  </view>
+  <view class="pull" wx:if="{{isShow}}" catchtap="closeMenu"/>
+  <view class="menu {{isShow? 'up': 'down'}}">
+    111
+  </view>
+  <common-audio wx:if="{{showAudio}}" class="audio"/>
+</view>

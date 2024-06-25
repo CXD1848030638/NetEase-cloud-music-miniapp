@@ -1,0 +1,4 @@
+<view class="rank-content">
+  <hd-tip title="排行榜" tip="更多" catchtap="toList"></hd-tip>
+  <swiper-list swiperList="{{rankList}}"></swiper-list>
+</view>

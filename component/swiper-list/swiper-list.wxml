@@ -1,0 +1,24 @@
+<swiper class="swiper-list" next-margin="60rpx">
+  <block wx:for="{{swiperList}}" wx:key="index">
+    <swiper-item id="{{item.id}}" class="swiper-item" catchtap="chooseList">
+      <view class="item-cotent">
+        <view class="title-name">{{item.name}}
+          <text class="iconfont icon-gengduo2"></text>
+        </view>
+        <view class="rank-list">
+          <block wx:for="{{item.tracks}}" wx:for-item="ranks" wx:key="i" wx:for-index="i">
+            <view class="list-item">
+              <image lazy-load class="list-image" src="{{ranks.al.picUrl + '?param=50y50'}}"/>
+              <text class="count">{{i + 1}}</text>
+              <text class="count-name">{{ranks.name}} <text class="singer">- {{ranks.ar[0].name}}</text>
+              </text>
+            </view>
+          </block>
+        </view>
+      </view>
+    </swiper-item>
+  </block>
+</swiper>
+
+
+

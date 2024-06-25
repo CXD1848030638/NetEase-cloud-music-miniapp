@@ -1,0 +1,66 @@
+<view class="back-content">
+  <view class="blur" style="background: url({{songInfo.al.picUrl }}?param=200y200) no-repeat center;"></view>  
+  <view class="container" bindtap="closeList">
+    <view class="topBar" style="height:{{h+44}}px;line-height:{{2*h+44}}px">
+      <view class="iconfont icon-fanhui back" catchtap="backTo"/>
+      <view class="songName">{{songInfo.name || '暂无数据'}}</view>
+      <view class="back"></view>
+    </view>
+    <view class="content-image" style="top:{{h+50}}px">
+      <view class="circle-button"></view>
+      <image class="needle {{isPlay? 'play': ''}}" src="/assets/images/song/needle.png" mode="widthFix"/>
+      <view class="disc-content">
+        <image class="disc" src="/assets/images/song/disc.png" mode="widthFix"/>
+        <view class="song-back">
+          <image class="songback-img" src="{{songInfo.al.picUrl + '?param=200y200'}}" mode="widthFix"/>
+        </view>
+      </view>
+    </view>
+    <!-- 歌词展示 -->
+    <scroll-view class="lyric-content" scroll-y 
+    scroll-anchoring scroll-with-animation scroll-top="{{marginTop}}">
+      <view wx:if="{{songInfo.fee == 1}}" class="none-lyric">VIP试听中</view>
+      <view class="content-text" wx:else>
+        <block wx:for="{{lyric}}" wx:key="index">
+          <view class="lyric-item {{currentIndex == index ? 'currentTime' : ''}}">{{item[1]}}</view>
+        </block>
+        <view wx:if="{{lyric}}" class="none-lyric">暂无歌词</view>
+      </view>
+    </scroll-view>
+
+    <!-- 进度条 -->
+    <view class="progress" catchtouchend="changeProgress">
+      <text>{{ct}}</text>
+      <view class="progress-line">
+        <view class="progress-active" style="width: {{progress}}%"></view>
+      </view>
+      <text>{{dt}}</text>
+    </view>
+    <!-- 控制区 -->
+    <view class="footer">
+      <view class="iconfont {{circleType}}" catchtap="changeCircleType"></view> 
+      <view class="iconfont icon-shangyiqu101" id="pre" catchtap="switchSong"></view>
+      <view class="play-button" catchtap="play">
+        <text class="iconfont {{isPlay? 'icon-zanting': 'icon-bofang1'}}"></text>
+      </view>
+      <view class="iconfont icon-xiayiqu101" id="next" catchtap="switchSong"></view>
+      <view class="iconfont icon-caidan" catchtap="openList"></view>
+    </view>
+  </view>
+
+  <view class="play-list {{isShow? 'up': 'down'}}">
+    <view class="play-list__title">播放列表<text class="play-count">({{playList.length || 0}})</text></view>
+    <scroll-view scroll-y class="scroll-list__content" scroll-top="{{index * 40}}">
+      <view style="height: 900rpx">
+        <block wx:for="{{playList}}" wx:key="index">
+          <view class="scroll-list__item" id="{{index}}" data-info="{{item.id}}" catchtap="chooseSong">
+            <text class="song-number">{{index + 1}}</text>
+            <text wx:if="{{item.id == songInfo.id}}" class="iconfont icon-zhengzaibofang"></text>
+            <text class="play-list__songname  {{item.id == songInfo.id?'playing':''}}">{{item.name || item.songInfo.name}}{{item.alia[0]? '('+item.alia[0]+')': ''}}</text>
+            <text class="play-list__singer  {{item.id == songInfo.id?'playing':''}}"> - {{item.ar[0].name || item.artists[0].name || item.songInfo.ar[0].name}}</text>
+          </view>
+        </block>
+      </view>
+    </scroll-view>
+  </view>
+</view>

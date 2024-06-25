@@ -1,2 +1,7 @@
-# NetEase-cloud-music-miniapp
-仿网易云音乐的微信小程序
+###  后端API
+
+[后端API仓库地址](https://gitlab.com/Binaryify/neteasecloudmusicapi)
+
+[API文档](https://binaryify.github.io/NeteaseCloudMusicApi/#/)
+
+
